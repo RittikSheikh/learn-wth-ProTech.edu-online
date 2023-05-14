@@ -1,0 +1,22 @@
+.form-container{
+    background-color: #f0f2f5;
+    color: #BAC6D2;
+}
+.form-container input{
+    margin-bottom: 20px;
+    padding: 10px;
+    color: rgb(46, 45, 45);
+}
+.input-btn{
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+.form-container input:focus{
+    outline: none;
+}
+
+.form-hr{
+    border: 2px solid;
+    border-radius: 50px;
+}
