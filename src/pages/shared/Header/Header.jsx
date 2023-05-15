@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from '../../../assets/images/ebook.png';
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
+import SideNav from '../SideNav/SideNav';
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center" +
+              "lg:flex flex-grow items-center justify-between" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
@@ -66,6 +67,9 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
+            <div className='lg:hidden'>
+              <SideNav></SideNav>
+            </div>
           </div>
         </div>
       </nav>

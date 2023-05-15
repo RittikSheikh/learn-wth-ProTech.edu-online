@@ -4,6 +4,7 @@ import ErrorPage from "../pages/shared/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Courses from "../pages/Courses/Courses";
  
  export const router = createBrowserRouter([
     {
@@ -26,7 +27,13 @@ import Register from "../pages/Register/Register";
             {
                 path: '/register',
                 element: <Register/>
-            }
+            },
+            {
+                path: '/courses',
+                element: <Courses/>,
+                loader: () => fetch('https://pro-tech-edu-online-server.vercel.app/courses')
+            },
+            
         ]
     }
 ])
