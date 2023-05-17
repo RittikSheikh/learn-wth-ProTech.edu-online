@@ -68,7 +68,7 @@ const Header = () => {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                 >
                   {
-                      user? <img className='w-[30px] h-[30px] rounded-full' src={user.photoURL} alt="userPhoto" title={user.displayName} /> : <Link to='/login'>login</Link>
+                      user? <Link to='/profile'><img className='w-[30px] h-[30px] rounded-full' src={user.photoURL} alt="userPhoto" title={user.displayName} /></Link> : <Link to='/login'>login</Link>
                   }
                 </span>
               </li>
