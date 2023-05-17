@@ -5,7 +5,6 @@ import CourseCard from './CourseCard/CourseCard';
 
 const Courses = () => {
     const courses = useLoaderData()
-    console.log(courses)
     return (
         <div className='grid lg:grid-cols-12'>
             <div className='col-span-2 hidden lg:block'>

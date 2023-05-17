@@ -24,7 +24,7 @@ const SelectedCourse = () => {
                         >
                             Back To Courses
                         </Link>
-                        <button onClick={()=>{toast.success('purchase success',)}} className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-orange-600 outline-none">Buy This Course</button>
+                        <button onClick={()=>{toast.success('purchase success',)}} className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-orange-600 outline-none  hover:bg-rose-100">Buy This Course</button>
                 </div>
             </div>
         </div>
