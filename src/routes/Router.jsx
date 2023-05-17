@@ -6,6 +6,9 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Courses from "../pages/Courses/Courses";
 import SelectedCourse from "../pages/Courses/SelectedCourse/SelectedCourse";
+import Profile from "../pages/Profile/Profile";
+import PremiumAccess from "../pages/PremiumAccess/PremiumAccess";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
  
  export const router = createBrowserRouter([
     {
@@ -38,6 +41,14 @@ import SelectedCourse from "../pages/Courses/SelectedCourse/SelectedCourse";
                 path: '/course/:id',
                 element: <SelectedCourse/>,
                 loader: ({params}) => fetch(`https://pro-tech-edu-online-server.vercel.app/course/${params.id}`)
+            },
+            {
+                path: '/profile',
+                element: <Profile/>
+            },
+            {
+                path: '/premium',
+                element: <PrivateRoute><PremiumAccess/></PrivateRoute>
             }
         ]
     }

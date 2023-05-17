@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import facebook from '../../assets/images/facebook.png';
 import google from '../../assets/images/google.png';
 import github from '../../assets/images/github.png';
@@ -9,14 +9,16 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const Login = () => {
 
     const { googleLoginUser, facebookLoginUser, githubLoginUser, loginUser } = useContext(AuthContext);
-
-    
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
 
     const googleLogin = () => {
         googleLoginUser()
             .then(result => {
                 const user = result.user;
                 console.log('google log in user', user)
+                navigate(from, {replace: true})
             })
             .catch(error => console.error(error))
     }
@@ -26,6 +28,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log('facebook log in user', user)
+            navigate(from, {replace: true})
         })
         .catch(error => console.error(error))
     }
@@ -35,6 +38,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log('github log in user', user)
+            navigate(from, {replace: true})
         })
         .catch(error => console.error(error))
     }
@@ -48,6 +52,7 @@ const Login = () => {
         .then(result => {
             const user = result.user
             console.log('log in user with email and password', user)
+            navigate(from, {replace: true})
         }).catch(error => console.error(error))
         form.reset();
     }

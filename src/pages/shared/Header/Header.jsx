@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../../assets/images/ebook.png';
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
 import SideNav from '../SideNav/SideNav';
+import { FaUserAlt } from "react-icons/fa";
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const {user, setUser} = useContext(AuthContext);
+  console.log(user)
   return (
     <div>
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-blue-500 mb-3">
@@ -53,18 +57,20 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to='/profile'
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                >
-                  <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Profile</span>
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link to='/toggleTheme'
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                 >
                   <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Toggle Theme</span>
                 </Link>
+              </li>
+              <li className="nav-item">
+                <span
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                >
+                  {
+                      user? <img className='w-[30px] h-[30px] rounded-full' src={user.photoURL} alt="userPhoto" title={user.displayName} /> : <Link to='/login'>login</Link>
+                  }
+                </span>
               </li>
             </ul>
             <div className='lg:hidden'>

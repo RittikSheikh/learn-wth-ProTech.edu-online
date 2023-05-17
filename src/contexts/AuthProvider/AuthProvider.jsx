@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../../firebase/firebase.config';
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -15,26 +15,32 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
     
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // all authentication functions goes down here
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
     
     const googleLoginUser = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider);
     }
     
     const facebookLoginUser = () => {
+        setLoading(true)
         return signInWithPopup(auth, facebookProvider);
     }
 
     const githubLoginUser = () => {
+        setLoading(true)
         return signInWithPopup(auth, githubProvider);
     }
 
 
     const createdUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
     
@@ -45,9 +51,13 @@ const AuthProvider = ({ children }) => {
     }
 
     const loginUser = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    const logOutUser = () => {
+        return signOut(auth)
+    }
 
 
     // getting the current user
@@ -55,8 +65,9 @@ const AuthProvider = ({ children }) => {
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, (currentUser) =>{
             setUser(currentUser)
+            setLoading(false)
         })
-           unSubscribe()
+          return () => unSubscribe()
     }, [])
 
 
@@ -65,6 +76,7 @@ console.log(user)
     return (
         <AuthContext.Provider value={{
             user,
+            setUser,
             createUser,
             googleLoginUser,
             facebookLoginUser,
@@ -72,6 +84,9 @@ console.log(user)
             createdUser,
             updateUserProfile,
             loginUser,
+            logOutUser,
+            loading,
+            setLoading,
         }}>
             {children}
         </AuthContext.Provider>
