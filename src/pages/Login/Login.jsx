@@ -5,6 +5,7 @@ import facebook from '../../assets/images/facebook.png';
 import google from '../../assets/images/google.png';
 import github from '../../assets/images/github.png';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
 
@@ -53,7 +54,10 @@ const Login = () => {
             const user = result.user
             console.log('log in user with email and password', user)
             navigate(from, {replace: true})
-        }).catch(error => console.error(error))
+        }).catch(error => {
+            toast.error(`${error.message}`);
+            console.error(error)
+        })
         form.reset();
     }
 
