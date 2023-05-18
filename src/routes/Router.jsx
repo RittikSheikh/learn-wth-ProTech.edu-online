@@ -9,6 +9,7 @@ import SelectedCourse from "../pages/Courses/SelectedCourse/SelectedCourse";
 import Profile from "../pages/Profile/Profile";
 import PremiumAccess from "../pages/PremiumAccess/PremiumAccess";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Blog from "../pages/Blog/Blog";
  
  export const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
             {
                 path: '/premium',
                 element: <PrivateRoute><PremiumAccess/></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element: <Blog/>
             }
         ]
     }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import logo from '../../../assets/images/ebook.png';
 import { HiBars3BottomRight } from "react-icons/hi2";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import SideNav from '../SideNav/SideNav';
 import { FaUserAlt } from "react-icons/fa";
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -36,11 +36,11 @@ const Header = () => {
           >
             <ul className="flex flex-col mt-4 lg:mt-0  lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
-                <Link to='/courses'
+                <NavLink to='/courses'
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                 >
                   <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Courses</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <Link to='/blog'
