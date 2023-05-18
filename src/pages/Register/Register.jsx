@@ -59,7 +59,7 @@ const {createdUser, googleLoginUser, facebookLoginUser, githubLoginUser, updateU
     }
 
     return (
-        <div>
+        <div className='py-10 md:py-36'>
             <div className="form-container w-full md:w-[500px] mx-auto my-10 p-2 lg:p-[50px] rounded-md">
                 <h1 className='font-bold text-2xl text-center my-4'>welcome to register page !</h1>
                 <form onSubmit={handleCreateUser} action="">

@@ -6,7 +6,7 @@ const Blog = () => {
     const {dark} = useContext(DarkContext)
 
     return (
-        <div className='my-10'>
+        <div className='py-10 md:py-60'>
             <h1 className='font-bold text-blue-500'>* What is CORS ?</h1>
             <p className={dark ? 'text-white' : 'text-black'}><span className='bg-blue-400 rounded-sm text-white px-2'>ans:</span> CORS is stands for Cross Origin Resource. When we create a server side and want to give access our data to others then we need to use CORS otherwise the data can not be shared for the CORS policy.</p>
             <h1 className='font-bold text-blue-500 mt-3'>* Why iam using firebase? What other options do you have to implement authentication?</h1>
