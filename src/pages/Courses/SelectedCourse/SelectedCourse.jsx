@@ -1,13 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import downloadIcon from '../../../assets/images/download-file.png';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { DarkContext } from '../../../App';
 
 
 
 const SelectedCourse = () => {
+    const {dark} = useContext(DarkContext)
     const course = useLoaderData();
     const { img, id, name, price, description } = course;
     // for the pdf download
@@ -31,7 +33,7 @@ const SelectedCourse = () => {
       };
 
     return (
-        <div>
+        <div className={dark ? 'bg-black' : 'bg-white'}>
 
             <div className="course-nav flex items-center justify-around md:w-[450px] my-10 mx-auto bg-orange-400 text-white p-5 rounded-md mt-10">
                 <img className='w-[100px] rounded-full' src={img} alt="card-img" />
@@ -44,12 +46,12 @@ const SelectedCourse = () => {
             <div className="mx-auto rounded-lg md:flex bg-white drop-shadow-lg md:drop-shadow-none md:my-10" ref={pdfRef}>
                 <img
                     src={img}
-                    className="aspect-video w-full md:max-w-sm lg:max-w-3xl object-cover"
+                    className="aspect-video w-full rounded-md md:max-w-sm lg:max-w-3xl object-cover"
                     alt=""
                 />
-                <div className="p-4 lg:p-10">
+                <div className={dark ? 'bg-black p-4' : 'bg-white p-4'}>
                     <p className="mb-1 text-sm font-semibold text-orange-600 text-primary-500">price: {price}</p>
-                    <h3 className="text-xl font-medium text-gray-900">{name}</h3>
+                    <h3 className={dark ? 'text-xl font-medium text-white' : 'text-xl font-medium text-black'}>{name}</h3>
                     <p className="mt-1 text-gray-500">{description}</p>
                     <div className="mt-4 flex">
                         <Link to='/courses'
