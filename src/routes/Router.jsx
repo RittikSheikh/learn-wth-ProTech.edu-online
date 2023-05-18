@@ -10,6 +10,7 @@ import Profile from "../pages/Profile/Profile";
 import PremiumAccess from "../pages/PremiumAccess/PremiumAccess";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Blog from "../pages/Blog/Blog";
+import Faq from "../pages/Faq/Faq";
  
  export const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ import Blog from "../pages/Blog/Blog";
             {
                 path: '/blog',
                 element: <Blog/>
+            },
+            {
+                path: '/faq',
+                element: <Faq/>
             }
         ]
     }
