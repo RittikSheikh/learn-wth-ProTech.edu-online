@@ -3,7 +3,7 @@ import logo from '../../../assets/images/ebook.png';
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { Link, NavLink } from 'react-router-dom';
 import SideNav from '../SideNav/SideNav';
-import { FaUserAlt } from "react-icons/fa";
+import './Header.css';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
@@ -15,9 +15,9 @@ const Header = () => {
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-blue-500 mb-3">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-              <Link to='/home'>
+              <NavLink to='/home' className={(isActive) => isActive ? 'active' : undefined}>
               <img className='w-[50px] h-[45px] mr-1 inline' src={logo} alt="" />
-              </Link>
+              </NavLink>
                 <h4 className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-white">ProTech.edu</h4>
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -37,35 +37,35 @@ const Header = () => {
             <ul className="flex flex-col mt-4 lg:mt-0  lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <NavLink to='/courses'
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  className= 'px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75'
                 >
-                  <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Courses</span>
+                  <i className="text-lg leading-lg opacity-75"></i><span className="ml-2">Courses</span>
                 </NavLink>
               </li>
               <li className="nav-item">
-                <Link to='/blog'
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                <NavLink to='/blog'
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                 >
-                  <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Blog</span>
-                </Link>
+                  <i className="text-lg leading-lg opacity-75"></i><span className="ml-2">Blog</span>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to='/faq'
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                <NavLink to='/faq'
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                 >
-                  <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">FAQ</span>
-                </Link>
+                  <i className="text-lg leading-lg  opacity-75"></i><span className="ml-2">FAQ</span>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to='/toggleTheme'
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                <NavLink to='/toggleTheme'
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                 >
-                  <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Toggle Theme</span>
-                </Link>
+                  <i className="text-lg leading-lg opacity-75"></i><span className="ml-2">Toggle Theme</span>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <span
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                 >
                   {
                       user? <Link to='/profile'><img className='w-[30px] h-[30px] rounded-full' src={user.photoURL} alt="userPhoto" title={user.displayName} /></Link> : <Link to='/login'>login</Link>

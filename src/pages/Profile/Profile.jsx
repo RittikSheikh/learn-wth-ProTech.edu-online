@@ -25,7 +25,7 @@ const Profile = () => {
             alt="Profile"
           />
         </div>
-        <div className="p-8">
+        <div className="p-8 text-black">
           <div className="uppercase tracking-wide text-lg text-indigo-500 font-semibold">
             User Profile
           </div>

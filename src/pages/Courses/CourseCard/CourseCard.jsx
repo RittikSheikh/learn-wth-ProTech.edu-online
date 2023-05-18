@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactImageMagnify from 'react-image-magnify';
 
 const CourseCard = ({ course }) => {
     const { img, name, id, description, price } = course;
